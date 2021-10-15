@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container1{
+        display: grid;
+        /* grid-template-columns: 300px 100px 100px; */
+        /* grid-template-columns: 300px auto 100px; */
+        /* grid-template-columns: 1fr 4fr 1fr; */
+        grid-template-columns: repeat(3, auto);
+        grid-gap: 2rem;
+    }
+    .item1{
+        /* height: 100px;
+        width: 100px; */
+        background-color: red;
+        border: 2px solid black;
+        padding: 15px 5px;
+    }
+
+    .container2{
+        display: grid;
+        grid-template-rows: 1fr 1fr 4fr;
+        grid-auto-rows: 2fr;
+        grid-template-columns: repeat(4, 2fr);
+        grid-gap: 1rem;
+    }
+    .box1{
+        background-color: red;
+        border: 2px solid black;
+    }
+
+    .container3{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        /* grid-column-gap: 7rem;
+        grid-row-gap: 1rem; */
+        grid-gap: 1rem;
+        
+
+    }
+    .box2{
+        border: 2px solid black;
+        background-color: rgb(228, 188, 228);
+        padding: 23px;
+    }
+    .box2:first-child{
+        /* grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3; */
+        grid-column: 1 / span 3;
+        grid-row: 1 / span 3;
+    }
+    .container4
+    { 
+        display: grid; 
+        grid-gap: 1rem;
+        /* grid-template-columns: 112px 112px 112px;  */
+        /* grid-template-columns: 1fr 1fr 1fr;  */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        /* justify-content: center;  */
+    }
+    .box3
+    {
+        border: 2px solid black;
+        background-color: rgb(245, 187, 101);
+        padding: 34px; 
+    }
+
+    .container5{
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-areas: 
+        'navbar navbar navbar navbar' 
+        'section section section aside'
+        'footer footer footer footer ';
+    }
+    .item2{
+        background-color: yellow;
+        border: 3px solid black;
+        padding: 12px 23px;
+    }
+    #navbar{
+        grid-area: navbar;
+    }
+    #section{
+        grid-area: section;
+    }
+    #aside{
+        grid-area: aside;
+    }
+   footer{
+        grid-area: footer;
+    }
+
+    .container6
+    {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-areas:
+            'secondnavbar secondnavbar secondnavbar secondnavbar'
+            'secondsection secondsection secondsection secondaside'
+            'secondfooter secondfooter secondfooter secondfooter ';
+    }
+
+    @media only screen and (max-width:300px) {
+        body {
+            background-color: red;
+        }
+        .container6 {
+            grid-template-areas:
+                'secondnavbar secondnavbar secondnavbar secondnavbar'
+                'secondsection secondsection secondsection secondsection'
+                'secondaside secondaside secondaside secondaside'
+                'secondfooter secondfooter secondfooter secondfooter ';
+        }
+        #secondaside{
+            display: none;
+        }
+        span{
+            display: block;
+            text-align: center;
+        }
+    }
+
+    @media only screen and (min-width: 300px) and (max-width:500px) {
+        body {
+            background-color: blue;
+        }
+        .container6 {
+            grid-template-areas:
+                'secondnavbar secondnavbar secondnavbar secondnavbar'
+                'secondsection secondsection secondsection secondsection'
+                'secondaside secondaside secondaside secondaside'
+                'secondfooter secondfooter secondfooter secondfooter ';
+        }
+        aside{
+            display: none;
+        }
+        span{
+            display: block;
+            text-align: center;
+        }
+    }
+
+    @media (min-width: 500px) and (max-width:800px) {
+        body {
+            background-color: yellow;
+        }
+
+        .container6 {
+            grid-template-areas:
+                'secondnavbar secondnavbar secondnavbar secondnavbar'
+                'secondsection secondsection secondsection secondsection'
+                'secondaside secondaside secondaside secondaside'
+                'secondfooter secondfooter secondfooter secondfooter ';
+        }
+        span{
+            display: block;
+            text-align: center;
+        }
+    }
+
+    @media (min-width: 800px) {
+        body {
+            background-color: green;
+        }
+    }
+
+    .bdr {
+        border: 2px solid black;
+        padding: 10px 23px;
+        background-color: wheat;
+    }
+
+    #secondnav {
+        grid-area: secondnavbar;
+    }
+
+    #secondsection {
+        grid-area: secondsection;
+    }
+
+    #secondaside {
+        grid-area: secondaside;
+    }
+
+    #secondfooter {
+        grid-area: secondfooter;
+        text-align: center;
+    }
+
+</style>
+<body>
+    <div class="container1">
+    <div class="item1">This is item11</div>
+    <div class="item1">This is item12</div>
+    <div class="item1">This is item13</div>
+    <div class="item1">This is item14</div>
+    <div class="item1">This is item15</div>
+    <div class="item1">This is item16</div>
+    <div class="item1">This is item17</div>
+    <div class="item1">This is item18</div>
+    <div class="item1">This is item19</div>
+    <div class="item1">This is item110</div>
+    <div class="item1">This is item111</div>
+    <div class="item1">This is item112</div>
+    <div class="item1">This is item113</div>
+    <div class="item1">This is item114</div>
+    <div class="item1">This is item115</div>
+    </div>
+
+    <div class="container2">
+        <div class="box1">This is box11</div>
+        <div class="box1">This is box12</div>
+        <div class="box1">This is box13</div>
+        <div class="box1">This is box14</div>
+        <div class="box1">This is box15</div>
+        <div class="box1">This is box16</div>
+        <div class="box1">This is box17</div>
+        <div class="box1">This is box18</div>
+        <div class="box1">This is box19</div>
+        <div class="box1">This is box110</div>
+    </div>
+
+    <div class="container3">
+        <div class="box2">box21</div>
+        <div class="box2">box22</div>
+        <div class="box2">box23</div>
+        <div class="box2">box24</div>
+        <div class="box2">box25</div>
+        <div class="box2">box26</div>
+        <div class="box2">box27</div>
+        <div class="box2">box28</div>
+        <div class="box2">box29</div>
+        <div class="box2">box210</div>
+        <div class="box2">box211</div>
+        <div class="box2">box212</div>
+        <div class="box2">box213</div>
+        <div class="box2">box214</div>
+        <div class="box2">box215</div>
+    </div>
+
+    <div class="container4">
+        <div class="box3">box31</div>
+        <div class="box3">box32</div>
+        <div class="box3">box33</div>
+        <div class="box3">box34</div>
+        <div class="box3">box35</div>
+        <div class="box3">box36</div>
+        <div class="box3">box37</div>
+        <div class="box3">box38</div>
+        <div class="box3">box39</div>
+        <div class="box3">box310</div>
+        <div class="box3">box311</div>
+        <div class="box3">box312</div>
+        <div class="box3">box313</div>
+        <div class="box3">box314</div>
+        <div class="box3">box315</div>
+    </div>
+
+    <div class="container5">
+        <div id="navbar" class="item2">Home About Contact Us</div>
+        <div id="section" class="item2">paragraph1</div>
+        <div id="aside" class="item2">paragraph2</div>
+        <footer class="item2">footer</footer>
+    </div>
+
+    <div class="container6 ">
+        <nav id="secondnav" class="bdr">
+            <span>Home</span>
+            <span>About</span>
+            <span>Services</span>
+            <span>Contact</span> 
+        </nav>
+        <section id="secondsection" class="bdr">
+            <h2>Learn CSS in hindi</h2>
+            <p>Paragraph</p>
+        </section>
+        <aside id="secondaside"class="bdr">
+            <h1>More about us</h1>
+        </aside>
+    </div>
+    <footer  id="secondfooter" class="bdr">Copyright CodeWithHarry 2020</footer>
+
+
+</body>
+</html>
